@@ -1,0 +1,56 @@
+.max-text {
+    overflow: hidden;
+    height: 100%;
+    line-height: 0.95rem;
+    width: 100%;
+}
+
+.max-title {
+    overflow: hidden;
+    height: 1.3em;
+    width: 100%;
+}
+
+#descr-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.0);
+    border-radius: 10px;
+    background-color: #E7E9EB;
+}
+
+#descr-scroll::-webkit-scrollbar {
+    width: 0.3rem;
+    background-color: #F5F5F5;
+}
+
+#descr-scroll::-webkit-scrollbar-thumb {
+    background-color: #212529;
+    border-radius: 10px;
+}
+
+#photo::-webkit-file-upload-button {
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: 0;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    -webkit-margin-start: -1rem;
+    margin-inline-start: -1rem;
+    -webkit-margin-end: 1rem;
+    margin-inline-end: 1rem;
+}
+
+#photo[target=addpenjual]::-webkit-file-upload-button {
+    background: #53A8E9;
+}
+
+#photo[target=editpenjual]::-webkit-file-upload-button {
+    background: #47e972;
+}
+
+#photo[target=delpenjual]::-webkit-file-upload-button {
+    background: #EC4E4E;
+}
