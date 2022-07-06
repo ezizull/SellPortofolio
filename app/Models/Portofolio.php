@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Portofolio extends Model
 {
     use HasFactory;
+    protected $table = "portofolio";
+    protected $primaryKey = "id";
+    protected $fillable = [
+       'id', 'title', 'deskripsi'];
+
+    public function penjual(){
+        return $this->belongsTo(Penjual::class);
+    }
 }

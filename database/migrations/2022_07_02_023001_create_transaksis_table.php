@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
             $table->integer('seller_id');
-            $table->integer('user');
+            $table->integer('user_id');
             $table->string('nama jasa', 100);
             $table->date('tanggal pembelian');
             $table->date('deadline');
