@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('nama jasa', 100);
             $table->date('tanggal pembelian');
             $table->date('deadline');
-            $table->string('deskripsi', 100);
+            $table->text('deskripsi');
             $table->string('status', 100);
             $table->integer('harga');
             $table->integer('portofolio_id');

@@ -16,4 +16,8 @@ class Portofolio extends Model
     public function penjual(){
         return $this->belongsTo(Penjual::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id');
+    }
 }

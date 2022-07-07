@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('portofolio', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title', 100);
-            $table->string('deskripsi', 200);
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

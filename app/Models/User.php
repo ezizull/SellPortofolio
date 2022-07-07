@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function portofolio(){
+        return $this->hasMany(Portofolio::class, 'user_id');
+    }
+
+    public function transaksi(){
+
+    }
 }

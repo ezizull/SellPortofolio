@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\DB;
 
 class PortofolioSeeder extends Seeder
 {
@@ -13,20 +13,7 @@ class PortofolioSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $faker = Faker::create('id_ID');
- 
-    	for($i = 1; $i <= 5; $i++){
- 
-    	      // insert data ke table pegawai menggunakan Faker
-    		\DB::table('portofolio')->insert([
-    			'title' => $faker->title,
-    			'deskripsi' => $faker->sentence,
-                'created_at'=>date('Y-m-d H:i:s'),
-                'updated_at'=>date('Y-m-d H:i:s')
-    		]);
- 
-    	}
     }
 }

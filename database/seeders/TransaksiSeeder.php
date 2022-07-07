@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\DB;
+
 class TransaksiSeeder extends Seeder
 {
     /**
@@ -12,27 +13,44 @@ class TransaksiSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $faker = Faker::create('id_ID');
- 
-    	for($i = 1; $i <= 5; $i++){
- 
+    	for($i = 1; $i <= 3; $i++){
+
     	      // insert data ke table pegawai menggunakan Faker
-    		\DB::table('transaksi')->insert([
-    			'seller_id' => $faker->randomDigit,
-                'user_id' => $faker->randomDigit,
+    		DB::table('transaksi')->insert([
+    			'seller_id' => $faker->numberBetween(1,5),
+                'user_id' => $faker->numberBetween(2,5),
                 'nama jasa'=>'Editing',
                 'tanggal pembelian' => date('Y-m-d H:i:s'),
                 'deadline' => $faker->dateTime,
                 'deskripsi' => $faker->sentence,
                 'status' => 'Belum',
-                'portofolio_id' => $faker->randomDigit,
-                'fee_admin' => $faker->randomNumber,
-                'harga' => $faker->randomNumber,
+                'portofolio_id' => $faker->numberBetween(1,5),
+                'fee_admin' => '10000',
+                'harga' => '500000',
                 'updated_at'=>date('Y-m-d H:i:s')
     		]);
- 
+
+    	}
+
+    	for($i = 1; $i <= 2; $i++){
+
+    	      // insert data ke table pegawai menggunakan Faker
+    		DB::table('transaksi')->insert([
+    			'seller_id' => $faker->numberBetween(2,5),
+                'user_id' => $faker->numberBetween(1,5),
+                'nama jasa'=>'Editing',
+                'tanggal pembelian' => date('Y-m-d H:i:s'),
+                'deadline' => $faker->dateTime,
+                'deskripsi' => $faker->sentence,
+                'status' => 'Belum',
+                'portofolio_id' => $faker->numberBetween(1,5),
+                'fee_admin' => '10000',
+                'harga' => '500000',
+                'updated_at'=>date('Y-m-d H:i:s')
+    		]);
+
     	}
     }
 }

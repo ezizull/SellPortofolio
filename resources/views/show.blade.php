@@ -26,7 +26,8 @@
             </section>
             @endif
             @endauth
-            <section
+            @if (isset($portofolio))
+            <section id="{{ $portofolio->id }}"
                 class="flex flex-col space-y-8 my-12 p-2 pb-8 lg:space-y-0 sm:mx-4 md:pb-0 md:h-[62rem] md:w-[55%] lg:flex-row lg:pb-2 lg:space-x-8 lg:my-0 lg:pr-4 lg:w-[85%] lg:h-[65%] xl:h-[55%] xl:w-[70%] 3xl:p-6 3xl:pr-8 3xl:space-x-12 items-center rounded bg-white">
                 <div class="relative md:h-[50%] md:w-[100%] lg:w-[42%] lg:h-[100%]">
                     <div class="h-[100%]" id="crousel">
@@ -73,31 +74,17 @@
 
                 <div
                     class="flex flex-col justify-center items-start py-2 space-y-10 sm:space-y-6 sm:px-3 md:px-2 md:w-[100%] lg:w-[58%]">
-                    <h2 class="font-black w-full uppercase truncate text-3xl lg:text-2xl">Lorem Ipsum</h2>
+                    <h2 class="font-black w-full uppercase truncate text-3xl lg:text-2xl">{{ $portofolio->title }}</h2>
                     <div class="snap-y snap-mandatory overflow-y-auto w-full max-h-72 pr-5 text-xs sm:text-base sm:pr-8 md:max-h-72 lg:max-h-24"
                         id="descr-scroll">
-                        <p id="deskripsi" class="snap-start text-justify block">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                            similique quae corrupti tempora officiis unde dignissimos, facere rerum officia doloremque
-                            sunt.
-                            Impedit
-                            ipsa officiis voluptas, id et repudiandae quibusdam assumenda.</p>
-                        <br>
-                        <p id="deskripsi" class="snap-start text-justify block">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                            similique quae corrupti tempora officiis unde dignissimos, facere rerum officia doloremque
-                            sunt.
-                            Impedit
-                            ipsa officiis voluptas, id et repudiandae quibusdam assumenda.</p>
-                        <br>
-                        <p id="deskripsi" class="snap-start text-justify block">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                            similique quae corrupti tempora officiis unde dignissimos, facere rerum officia doloremque
-                            sunt.
-                            Impedit
-                            ipsa officiis voluptas, id et repudiandae quibusdam assumenda.</p>
-                    </div>
+                        @php
+                        $deskripsis = preg_split('/[\n\r]+/', $portofolio->deskripsi);
+                        @endphp
 
+                        @foreach ( $deskripsis as $deskripsi)
+                        <p id="deskripsi" class="text-justify block">{{ $deskripsi }} <br><br></p>
+                        @endforeach
+                    </div>
 
                     <div class="flex space-x-4 justify-start items-center pt-[1rem]">
                         @auth
@@ -117,6 +104,7 @@
                     </div>
                 </div>
             </section>
+            @endif
         </section>
     </section>
 </x-app-layout>

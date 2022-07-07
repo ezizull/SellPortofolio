@@ -13,13 +13,13 @@ class Penjual extends Model
     protected $fillable = [
        'first_name', 'middle name', 'last name', 'email', 'password', 'no hp', 'alamat'];
 
-       public function pengguna()
+    public function pengguna()
     {
     	return $this->belongsToMany(Pengguna::class);
     }
 
 
-       public function portofolio(){
+    public function portofolio(){
         return $this->hasMany(Portofolio::class);
     }
 

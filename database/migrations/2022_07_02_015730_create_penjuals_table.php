@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('penjual', function (Blueprint $table) {
             $table->id();
             $table->string('first name', 100);
-            $table->string('middle name', 100);
-            $table->string('last name', 100);
+            $table->string('middle name', 100)->nullable();
+            $table->string('last name', 100)->nullable();
             $table->string('email', 100);
             $table->string('password', 100);
             $table->string('no hp', 100);

@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Penjual;
+use App\Models\Portofolio;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PenjualController extends Controller
 {
     function index(){
-        return view('penjual');
+        $portofolio = auth()->user()->portofolio;
+        return view('penjual', compact('portofolio'));
     }
 
     function add(){
@@ -23,7 +27,8 @@ class PenjualController extends Controller
     }
 
 
-    function show(){
-        return view('show');
+    function show($id){
+        $portofolio = Portofolio::find($id);
+        return view('show', compact('portofolio'));
     }
 }

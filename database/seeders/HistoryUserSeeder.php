@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\DB;
 
 class HistoryUserSeeder extends Seeder
 {
@@ -13,20 +14,7 @@ class HistoryUserSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $faker = Faker::create('id_ID');
- 
-    	for($i = 1; $i <= 5; $i++){
- 
-    	      // insert data ke table pegawai menggunakan Faker
-    		\DB::table('history_user')->insert([
-    			'user_id' => $faker->randomDigit,
-    			'nama jasa' => 'Editing',
-                'created_at'=>date('Y-m-d H:i:s'),
-                'updated_at'=>date('Y-m-d H:i:s')
-    		]);
- 
-    	}
     }
 }
